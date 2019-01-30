@@ -183,7 +183,12 @@ header .social li a:hover { color: #11ABB0; }
 
 .resume{
   margin:0;
-  background-color:#e1e3e8 !important;
+  background: url("/static/about_me/images/b.jpg") 100% no-repeat ;
+  -webkit-background-size:cover !important;
+  background-size: cover !important;
+  max-height:100%;
+  position:relative;
+  scroll-behavior: [ auto | smooth ];
   padding-top:90px;
   padding-bottom: 60px;
   padding-left:10%;
@@ -197,7 +202,8 @@ header .social li a:hover { color: #11ABB0; }
 
 .head{
   font-weight:bold;
-  padding-top:15%;
+  padding-top:10%;
+  color:white;
   border-bottom:3px skyblue solid;
 }
 .side-head{
@@ -229,7 +235,7 @@ ul {
     position: relative;
     margin-bottom: 60px;
     background: #ccc;
-    height: 42px;
+    height: 22px;
     border-radius: 3px;
 }
 li {
@@ -255,8 +261,12 @@ li {
   margin: 0;
   padding-right: 24px;
   display: inline-block;
-  height: 42px;
+  height: 22px;
   line-height: 42px;
+}
+em{
+  color: white !important;
+
 }
 .c {
     width: 70%;
@@ -295,7 +305,7 @@ li {
 }
 
 .django{
-    width: 85%;
+    width: 65%;
     border-radius:0px 20px 20px 0px;
     background-color:#71289b;
     -moz-animation: photoshop 2s ease;
@@ -311,8 +321,8 @@ li {
 .portfolio{
   margin:0;
   background-color:#2B2B2B !important;
-  padding-top:90px;
-  padding-bottom: 60px;
+  padding-top: 30px;
+  padding-bottom:120px;
   padding-left:10%;
   padding-right:10%;
   color:black;
@@ -325,27 +335,48 @@ li {
   color:grey;
 
 }
-.proj_img{
-  width:225px;
-  height:225px;
+
+.images_projects{
+  margin: .5vw;
+  font-size: 0;
+  margin-top:90px;
+  margin-bottom: 0px;
+  display: -ms-flexbox;
+  -ms-flexbox-wrap: wrap;
+  -ms-flexbox-direction: column;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  display: -webkit-box;
+  display: flex;
 }
-
-/* overlay */
-.proj_img:hover{
-   padding:20px;
+.images_projects div{
+  -webkot-box-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  width:200px;
+  height:250px;
+  margin: .5vw;
 }
-
-
-
-.blog_img{
+.images_projects div img{
   width:100%;
-  margin:0;
-  padding:0 5% 2% 0;
-  height:350px;
+  height:100%;
+}
+.images_projects div img:hover{
+  transform: scale(.9,.9);
 }
 
 
+#contact{
+  background: url("/static/about_me/images/blog_img.jpg") 50% no-repeat ;
+  margin:0;
+  -webkit-background-size:cover !important;
+  background-size: cover !important;
+  max-height:100%;
+  position:relative;
+  scroll-behavior: [ auto | smooth ];
+}
 .contact{
+  text-align: right;
   margin:0;
   padding-top:90px;
   padding-bottom: 60px;
@@ -353,6 +384,11 @@ li {
   padding-right:10%;
   font-size:18px;
   font-family:'opensans-bold', sans-serif;
+}
+
+.contact h3{
+  color: white;
+  font-size: 30px;
 }
 /* footer social links */
 .footer-social {
