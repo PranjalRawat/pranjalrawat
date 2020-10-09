@@ -160,7 +160,7 @@ header .social li a:hover { color: #11ABB0 !important; }
   padding-right:10%;
   color:grey;
   font-size:18px;
-  /* overflow-y: scroll; */
+  overflow-y: hidden;
   scroll-behavior: smooth;
 }
 
@@ -193,7 +193,7 @@ header .social li a:hover { color: #11ABB0 !important; }
   color:black;
   font-size:18px;
   font-family:'opensans-bold', sans-serif;
-  /* overflow-y: scroll; */
+  overflow-y: hidden;
   scroll-behavior: smooth;
   scroll-behavior: [ auto | smooth ];
 }

@@ -99,7 +99,7 @@ header .banner {
    vertical-align: middle;
    margin: 0 auto;
    width: 85%;
-   padding-bottom: 30px;s
+   padding-bottom: 0px;
    text-align: center;
 }
 
@@ -142,8 +142,7 @@ header .social li {
    padding: 0;
 }
 header .social li a { color: #fff; }
-header .social li a:hover { color: #11ABB0; }
-
+header .social li a:hover { color: #11ABB0 !important; }
 
 
 
@@ -161,7 +160,7 @@ header .social li a:hover { color: #11ABB0; }
   padding-right:10%;
   color:grey;
   font-size:18px;
-  overflow-y: scroll;
+  overflow-y: hidden;
   scroll-behavior: smooth;
 }
 
@@ -186,7 +185,7 @@ header .social li a:hover { color: #11ABB0; }
   background-size: cover !important;
   max-height:100%;
   position:relative;
-  scroll-behavior: [ auto | smooth ];
+  
   padding-top:90px;
   padding-bottom: 60px;
   padding-left:10%;
@@ -194,8 +193,9 @@ header .social li a:hover { color: #11ABB0; }
   color:black;
   font-size:18px;
   font-family:'opensans-bold', sans-serif;
-  overflow-y: scroll;
+  overflow-y: hidden;
   scroll-behavior: smooth;
+  scroll-behavior: [ auto | smooth ];
 }
 
 .head{
@@ -356,7 +356,7 @@ em{
   margin: .5vw;
 }
 .images_projects div img{
-  width:100%;
+  width:80%;
   height:100%;
 }
 .images_projects div img:hover{
