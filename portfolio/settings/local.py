@@ -139,4 +139,4 @@ AWS_ACCESS_KEY_ID = os.getenv('id', 'Optional default value')
 AWS_SECRET_ACCESS_KEY = os.getenv('key', 'Optional default value')
 AWS_SES_REGION = 'us-east-2'
 AWS_SES_REGION_ENDPOINT ='email-smtp.us-east-2.amazonaws.com'
-Email_from_to = os.getenv('Email_ftom_to', 'Optional default value')
+Email_from_to = os.getenv('Email_from_to', 'Optional default value')
