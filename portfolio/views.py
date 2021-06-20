@@ -1,4 +1,3 @@
-from portfolio.settings.local import Email_from_to
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.views.generic import DeleteView, DetailView, ListView, CreateView, UpdateView
@@ -144,8 +143,8 @@ class MainView(ListView):
             send_mail(
                 subject,
                 message,
-                Email_from_to,
-                [Email_from_to],
+                'rawatpranjal111@gmail.com',
+                ['rawatpranjal111@gmail.com'],
             )
         return redirect('/')
 
