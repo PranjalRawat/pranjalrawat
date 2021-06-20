@@ -135,8 +135,8 @@ MEDIA_URL = '/media/'
 
 
 EMAIL_BACKEND = 'django_amazon_ses.EmailBackend'
-AWS_ACCESS_KEY_ID = 'AKIAYIEL2ESQKGBAXAVX'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = config('id')
+AWS_SECRET_ACCESS_KEY = config('key')
 AWS_SES_REGION = 'us-east-2'
 AWS_SES_REGION_ENDPOINT ='email-smtp.us-east-2.amazonaws.com'
 Email_from_to = config('Email_from_to')
