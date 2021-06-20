@@ -25,7 +25,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'Optional default value')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pranjalrawat.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['pranjalrawat.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -81,6 +81,20 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
+# }
+# DATABASES = {
+
+#     'default': {
+
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'mypsqldb',
+#         'USER': 'root',
+#         'PASSWORD': 'rawat@123',
+#         'HOST': 'localhost',
+#         'PORT': '',
+
+#     }
+
 # }
 DATABASES = {
     'default': {
@@ -139,7 +153,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MEDIA_ROOT =  BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
 
@@ -147,5 +161,5 @@ EMAIL_BACKEND = 'django_amazon_ses.EmailBackend'
 AWS_ACCESS_KEY_ID = os.getenv('id', 'Optional default value')
 AWS_SECRET_ACCESS_KEY = os.getenv('key', 'Optional default value')
 AWS_SES_REGION = 'us-east-2'
-AWS_SES_REGION_ENDPOINT ='email-smtp.us-east-2.amazonaws.com'
+AWS_SES_REGION_ENDPOINT = 'email-smtp.us-east-2.amazonaws.com'
 Email_from_to = os.getenv('Email_from_to', 'Optional default value')
