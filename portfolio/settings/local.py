@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'Optional default value')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['pranjalrawat.herokuapp.com', '127.0.0.1']
 
@@ -82,26 +82,13 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-# DATABASES = {
 
-#     'default': {
-
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'mypsqldb',
-#         'USER': 'root',
-#         'PASSWORD': 'rawat@123',
-#         'HOST': 'localhost',
-#         'PORT': '',
-
-#     }
-
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd13rtc7mk65i8t',
-        'USER': 'obwgojsqxcvzjw',
-        'PASSWORD': 'a0d8af8e15d44069e89d1b4bd5529b20901bf0e2924915d9d791b23f42b41196',
+        'NAME': os.getenv('dbname', 'Optional default value'),
+        'USER': os.getenv('dbuser', 'Optional default value'),
+        'PASSWORD': os.getenv('dbpassword', 'Optional default value'),
         'HOST': 'ec2-107-21-98-165.compute-1.amazonaws.com',
         'PORT': '5432'
     }
