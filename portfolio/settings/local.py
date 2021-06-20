@@ -134,9 +134,9 @@ MEDIA_ROOT =  BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
 
-# EMAIL_BACKEND = 'django_amazon_ses.EmailBackend'
-# AWS_ACCESS_KEY_ID = environ('id')
-# AWS_SECRET_ACCESS_KEY = environ('key')
-# AWS_SES_REGION = 'us-east-2'
-# AWS_SES_REGION_ENDPOINT ='email-smtp.us-east-2.amazonaws.com'
-# Email_from_to = environ('Email_from_to')
+EMAIL_BACKEND = 'django_amazon_ses.EmailBackend'
+AWS_ACCESS_KEY_ID = os.getenv('id', 'Optional default value')
+AWS_SECRET_ACCESS_KEY = os.getenv('key', 'Optional default value')
+AWS_SES_REGION = 'us-east-2'
+AWS_SES_REGION_ENDPOINT ='email-smtp.us-east-2.amazonaws.com'
+Email_from_to = os.getenv('Email_ftom_to', 'Optional default value')
