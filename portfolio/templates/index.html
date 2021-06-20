@@ -1,0 +1,295 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PRANJAL RAWAT || Born to be somebody</title>
+    <link rel="icon" href="{% static 'images/pranjal.png' %}" />
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.11.0/devicon.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/media-queries.css' %}">
+    <script type="text/javascript" src="{% static 'js/smoothscroll.js' %}"></script>
+</head>
+
+
+
+<body>
+
+    <!-- Header ================================================== -->
+
+    <div class="home">
+        <header id="home">
+            <nav id="nav-wrap">
+                <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+                <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+                <ul id="nav">
+                    <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
+                    <li><a class="smoothscroll" href="#about">About</a></li>
+                    <li><a class="smoothscroll" href="#education">Education</a></li>
+                    <li><a class="smoothscroll" href="#certificate">Skills</a></li>
+                    <li><a class="smoothscroll" href="#portfolio">Works</a></li>
+                    <li><a class="smoothscroll" href="#contact">Contact</a></li>
+                </ul>
+                <!-- end #nav -->
+            </nav>
+            <!-- end #nav-wrap -->
+
+
+            <div class="row banner">
+                <div class="banner-text">
+                    <h1 class="responsive-headline">I'm Pranjal Rawat.</h1>
+                    {% for value in data %}
+                    <h3 class='fadeInUp'>{{ value.description }}</h3>
+                    <!--I'm a Software Developer, Web Developer preferred to work in Python programming language and its framework. I'm currently working on developing my skills on Data Analytics and Data Science field using Python.-->
+                    <hr class='fadeInUp' />
+                    <ul class="social fadeInUp">
+                        <li><a href="{{ value.titleLink1 }}"><i class="{{ value.title1 }}"></i></a></li>
+                        <li><a href="{{ value.titleLink2 }}"><i class="{{ value.title2 }}"></i></a></li>
+                        <li><a href="{{ value.titleLink3 }}"><i class="{{ value.title3 }}"></i></a></li>
+                        <li><a href="{{ value.titleLink4 }}"><i class="{{ value.title4 }}"></i></a></li>
+                        <li><a href="{{ value.titleLink5 }}"><i class="{{ value.title5 }}"></i></a></li>
+                        <li><a href="{{ value.titleLink6 }}"><i class="{{ value.title6 }}"></i></a></li>
+                    </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </header>
+    </div>
+    <!-- Header End ================================================= -->
+
+
+
+    <!--About ================================================= -->
+
+    <div class="about" id="about">
+        <div class="row">
+            {% for about in aboutme %}
+            <div class="col-md-4">
+                <img id="img" src="{{ about.profile.url }}" alt="My image" />
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-7 desc">
+                <h2>About Me</h2>
+                <p>{{ about.description }}</p>
+                <h3>Contact Details</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <address>
+							{{ about.address }}
+						</address>
+                    </div>
+                    <div class="col-md-6">
+                        <a class="btn btn-primary resume-btn" href="{{ about.resume.url }}">
+                            <i class="fa fa-download"></i> Download Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!--ABOUT SECTION ENDS ================================================= -->
+
+
+    <hr class="divider" />
+
+
+    <!--Education ================================================= -->
+
+    <div class="education " id="education">
+        <div class="row">
+            <div class="col-md-3" style="padding-right:8%;">
+                <h4 class="head">Qualification</h4>
+            </div>
+            <div class="col-md-9">
+                {% for edu in education %}
+
+                <h2 class="side-head">{{ edu.institute }}</h2>
+                <h5 class="side-sub-head">{{ edu.course }} &nbsp;<span>•</span>&nbsp;<em>{{ edu.duration }}</em></h5>
+                <br>
+                <p class="description">{{ edu.detail }}</p>
+                <br> {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!--EDUCATION SECTION ENDS ================================================= -->
+
+
+    <hr class="divider" />
+
+
+    <!--SKILLS SECTION ================================================= -->
+
+    <div class="certificate" id="certificate">
+
+        <div class="row" style="margin:0px 0 80px 0;">
+            <div class="col-md-3" style="padding-right:17%;">
+                <h4 class="head">Skills</h4>
+            </div>
+
+            <div class="col-md-9">
+                {% for skill in skills %}
+
+                <div class="col-md-3 outer_hexagon">
+                    <span class="hexagon" style="color: {{ skill.bg_color }}">&#x2B22;</span>
+                    <span class="skill_data_front">
+						{% if 'media' in skill.cover_img %}
+						<img id="cover_img" src="{{ skill.cover_img }}" />
+						{% else %}
+						<i id="cover" class="{{ skill.cover_img }}"></i>
+						{% endif %}
+						{% for i in "x"|ljust:skill.stars %}
+						<i class="fa fa-star star"></i>
+						{% endfor %}
+					</span>
+                    <span class="skill_data_back">
+						<div class="topic">{{ skill.topic }}</div>
+						<div class="level">({{ skill.level }})</div>
+					</span>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <hr class="divider" />
+
+
+        <div class="row" style="margin-top:80px;">
+            <div class="col-md-3" style="padding-right:9%;">
+                <h4 class="head">Certificates</h4>
+            </div>
+            <div class="col-md-9">
+                {% for topic in certificate %}
+                <div class="col-md-8">
+
+
+                    <h2 class="side-head">{{ topic.course }}</h2>
+                    <br>
+                    <p class="description">{{ topic.detail }}</p>
+                    <br>
+                    <p class="link">Verification Link - <a href="{{ topic.link }}">{{ topic.link }}</a></p>
+                    <br>
+
+
+                </div>
+                <div class="col-md-4 badge_box">
+                    <a href="{{ topic.badgeLink }}">
+                        <img id="badge" src="{{ topic.badge.url }}" alt="Badge" />
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!--SKILLS SECTION ENDS ================================================= -->
+
+
+    <hr class="divider" />
+
+
+    <!--Projects ================================================= -->
+
+    <div class="portfolio " id="portfolio">
+        <h3 class="h3">Check Out Some of My Works</h3><br>
+        <div class="images_projects">
+            {% for project in projects %}
+            <div class="inner_container">
+                <a href="{{ project.link }}">
+                    <img src="{{ project.image.url }}" alt="{{ project.title }}" />
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!--Projects SECTION ENDS ================================================= -->
+
+
+    <hr class="divider" />
+
+
+    <!--Contact================================================= -->
+
+    <div id="contact">
+        <h3 class="h3">Get In Touch</h3><br>
+        <div class="row contact_form">
+            <div class="col-md-5">
+                <form method="POST" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <ul>
+                        <li>
+                            <div class="form_title">Name</div>
+                            <div class="value">{{ contacts.name }}</div>
+                        </li>
+                        <li>
+                            <div class="form_title">Subject</div>
+                            <div class="value">{{ contacts.subject }}</div>
+                        </li>
+                        <li>
+                            <div class="form_title">Email Address</div>
+                            <div class="value">{{ contacts.email_address }}</div>
+                        </li>
+                        <li>
+                            <div class="form_title">Message</div>
+                            <div class="value">{{ contacts.message }}</div>
+                        </li>
+                        <li class="submit_btn">
+                            <input type="submit" value="Mail">
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <div class="img_con">
+                    <img class="img_subcon" src="{% static 'images/contact.png' %}" alt='man'>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="fot_social">
+                    {% for value in data %}
+                    <ul class="fot_subsoc">
+                        <li><a href="{{ value.titleLink1 }}"><i class="{{ value.title1 }}"></i></a></li>
+                        <li><a href="{{ value.titleLink2 }}"><i class="{{ value.title2 }}"></i></a></li>
+                        <li><a href="{{ value.titleLink3 }}"><i class="{{ value.title3 }}"></i></a></li>
+                        <li><a href="{{ value.titleLink4 }}"><i class="{{ value.title4 }}"></i></a></li>
+                        <li><a href="{{ value.titleLink5 }}"><i class="{{ value.title5 }}"></i></a></li>
+                        <li><a href="{{ value.titleLink6 }}"><i class="{{ value.title6 }}"></i></a></li>
+                    </ul>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+        </div>
+        <div class="copyright">
+
+            <div class="row">
+                <div class="col-md-6">
+                    &copy; 2016-2021 PRANJAL RAWAT
+                </div>
+                <div class="col-md-6">
+                    Designed by Pranjal Rawat
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--contact SECTION ENDS ================================================= -->
+
+
+</body>
+
+</html>
