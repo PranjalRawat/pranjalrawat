@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config
+from os import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = environ('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -135,8 +135,8 @@ MEDIA_URL = '/media/'
 
 
 EMAIL_BACKEND = 'django_amazon_ses.EmailBackend'
-AWS_ACCESS_KEY_ID = config('id')
-AWS_SECRET_ACCESS_KEY = config('key')
+AWS_ACCESS_KEY_ID = environ('id')
+AWS_SECRET_ACCESS_KEY = environ('key')
 AWS_SES_REGION = 'us-east-2'
 AWS_SES_REGION_ENDPOINT ='email-smtp.us-east-2.amazonaws.com'
-Email_from_to = config('Email_from_to')
+Email_from_to = environ('Email_from_to')
