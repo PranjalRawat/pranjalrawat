@@ -360,7 +360,6 @@ header .social li a:hover {
 .education {
     margin: 0;
     /* background-color: #2B2B2B !important; */
-    /* background: url("/static/images/b.jpg") 100% no-repeat ; */
     background-image: var(--section-bg-color);
     position: relative;
     padding-top: var(--section-pad-top);
@@ -412,7 +411,6 @@ header .social li a:hover {
 .certificate {
     margin: 0;
     /* background-color: #1b1718 !important; */
-    /* background: url("/static/images/b.jpg") 100% no-repeat ; */
     background-image: var(--section-bg-color);
     position: relative;
     padding-top: var(--section-pad-top);
