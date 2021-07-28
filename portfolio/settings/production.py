@@ -1,10 +1,9 @@
 from pathlib import Path
-from portfolio.settings.base import INSTALLED_APPS, MIDDLEWARE
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['pranjalrawat.herokuapp.com']
 
 
