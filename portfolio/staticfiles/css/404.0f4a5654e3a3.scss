@@ -1,0 +1,113 @@
+:root {
+    --clr-bg: #fff;
+    --clr-text: #000;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Lulo-Clean;
+    src: url(fonts/Lulo-Clean-Bold.ttf);
+}
+
+@font-face {
+    font-family: Luco-outline;
+    src: url(fonts/Lulo-Clean-Outline-Bold.otf);
+}
+
+html {
+    background: #5de8df;
+}
+
+body {
+    background-image: radial-gradient( circle at bottom, #3ff, #f4976c 95%);
+    margin: 0;
+    padding: 0;
+}
+
+.top {
+    padding: .2em 0;
+    font-size: 5rem;
+    text-align: center;
+    color: #294950;
+}
+
+.title {
+    margin-top: 1em;
+    padding: 0;
+    margin-left: 2em;
+    .tag {
+        font-family: "Luco-clean", sans-serif;
+        font-size: 1rem;
+        font-weight: bolder;
+        text-align: left;
+    }
+    .main {
+        position: relative;
+        inset: 0;
+        font-family: "Luco-outline", sans-serif;
+        font-size: 8rem;
+        text-align: center;
+        padding: .2em 0;
+    }
+}
+
+.section {
+    margin: 4em 0 0 2em;
+    .tag {
+        font-family: "Luco-clean", sans-serif;
+        font-size: 1rem;
+        font-weight: bolder;
+    }
+    .message {
+        padding: 1em 0 0 2em;
+        span {
+            font-family: "Luco-clean", sans-serif;
+            font-weight: bold;
+        }
+    }
+}
+
+.btn {
+    margin-top: 3em;
+    margin-bottom: 1em;
+    text-align: center;
+    button {
+        font-family: "Luco-clean", sans-serif;
+        font-size: 1rem;
+        font-weight: 800;
+        padding: .5em 2em;
+        border-radius: 10px;
+        letter-spacing: 1px;
+        background-color: #f4976c;
+        color: #294950;
+        i {
+            padding-right: 5px;
+        }
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .tag,
+    .message {
+        margin-left: 4em;
+    }
+}
+
+@media screen and (min-width: 820px) {
+    .tag,
+    .message {
+        margin-left: 8em;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .tag,
+    .message {
+        margin-left: 12em;
+    }
+}
