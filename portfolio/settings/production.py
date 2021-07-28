@@ -1,7 +1,5 @@
 from pathlib import Path
 from portfolio.settings.base import INSTALLED_APPS, MIDDLEWARE
-import os
-import django_heroku
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,4 +17,3 @@ ALLOWED_HOSTS = ['pranjalrawat.herokuapp.com']
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-django_heroku.settings(locals())
