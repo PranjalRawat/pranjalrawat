@@ -1,5 +1,7 @@
 __pycache__/
 *.py[cod]
+*.scss
+*.css.map
 /portfolio/media
 /portfolio/settings/local.py
 /portfolio/settings/.env
