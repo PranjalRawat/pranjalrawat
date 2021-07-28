@@ -83,9 +83,9 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': env('db_engine'),
-        'NAME': env('db_name'),
-        'USER': env('db_user'),
-        'PASSWORD': env('db_password'),
+        'NAME': env('dbname'),
+        'USER': env('dbuser'),
+        'PASSWORD': env('dbpassword'),
         'HOST': env('db_host'),
         'PORT': '',
     }
