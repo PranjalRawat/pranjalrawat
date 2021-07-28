@@ -1,0 +1,425 @@
+{% load static %} {% load skill_stars %} {% load address_sep %} {% load designation %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pranjal Rawat || Software Developer</title>
+    <link rel="icon" href="{% static 'image/pranjal.png' %}" />
+
+    <script src="https://kit.fontawesome.com/20280fd8f6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- <link rel="stylesheet" href="css/media.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/smoothscroll.js' %}"></script>
+
+
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arvo&family=Lato&family=Prompt&display=swap');
+    </style>
+    <script>
+        function navbtn() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " open";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <header id="nav">
+        <h1 class="logo">Logo</h1>
+        <a href="javascript:void(0);" class="nav__toggle" onclick="navbtn()">
+            <i class="fas fa-hamburger"></i>
+        </a>
+
+        <nav class="topnav" id="myTopnav">
+            <ul>
+                <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
+                <li><a class="smoothscroll" href="#about">About</a></li>
+                <li><a class="smoothscroll" href="#journey">Journey</a></li>
+                <li><a class="smoothscroll" href="#skills">Skills</a></li>
+                <li><a class="smoothscroll" href="#portfolio">Portfolio</a></li>
+                <li><a class="smoothscroll" href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="theme">
+            <div class="theme__toggle">
+                <button id="theme-toggle" aria-label="Dark theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 472.39 472.39">
+                      <g class="toggle-sun">
+                        <path d="M403.21,167V69.18H305.38L236.2,0,167,69.18H69.18V167L0,236.2l69.18,69.18v97.83H167l69.18,69.18,69.18-69.18h97.83V305.38l69.18-69.18Zm-167,198.17a129,129,0,1,1,129-129A129,129,0,0,1,236.2,365.19Z" />
+                      </g>
+                      <g class="toggle-circle">
+                        <circle class="cls-1" cx="236.2" cy="236.2" r="103.78" />
+                      </g>
+                    </svg>
+                
+                  </button>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- ------------------------- Home ------------------------------------- -->
+    <section id="home">
+        {% for value in data %}
+        <div class="main">
+            <div class="main__content">
+                <h1>I<span>'</span>M <br />PRANJAL <br />RAWAT<span>.</span>
+                </h1>
+
+                <div class="main__content__desc">
+                    {{ value.field|desig:'first' }} <span><b>&</b></span><br/> {{ value.field|desig:'second' }}
+
+                </div>
+            </div>
+            <div class="main__img">
+                <img src="{{ value.profile.url }}" alt="My Image">
+            </div>
+        </div>
+        <div class="social">
+            <ul class="social__presence">
+                <li><a href="{{ value.titleLink1 }}"><i class="{{ value.title1 }}"></i></a></li>
+                <li><a href="{{ value.titleLink2 }}"><i class="{{ value.title2 }}"></i></a></li>
+                <li><a href="{{ value.titleLink3 }}"><i class="{{ value.title3 }}"></i></a></li>
+                <li><a href="{{ value.titleLink4 }}"><i class="{{ value.title4 }}"></i></a></li>
+                <li><a href="{{ value.titleLink5 }}"><i class="{{ value.title5 }}"></i></a></li>
+                <li><a href="{{ value.titleLink6 }}"><i class="{{ value.title6 }}"></i></a></li>
+            </ul>
+
+        </div>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'update' value.id %}">
+            <button type="button" class="update_btn">
+            UPDATE
+            </button>
+        </a>
+        <a href="{% url 'delete' value.id %}">
+            <button type="button" class="delete_btn">
+            DELETE
+            </button>
+        </a>
+        {% endif %} {% endfor %} {% if request.user.is_authenticated %}
+        <br>
+        <a href="{% url 'add' %}">
+            <button type="button" class="add_btn">
+             ADD
+            </button>
+        </a>
+        {% endif %}
+    </section>
+
+    <!-- ----------------------- About Me ----------------------------------- -->
+
+    <div class="about" id="about">
+        {% for about in aboutme %}
+        <div class="about__left"></div>
+        <div class="about__right">
+            <div class="about__content">
+                <h1>About Me</h1>
+                <div class="about__content__desc">
+                    {{ about.description }}
+                </div>
+            </div>
+            <div class="about__extra">
+                <div class="about__contact">
+                    <h3>Contact Details</h3>
+                    <div class="about__contact__desc">
+                        <ul>
+                            <li>{{ about.address|address:'name' }}</li>
+                            <li>{{ about.address|address:'city' }},</li>
+                            <li>{{ about.address|address:'pincode' }},</li>
+                            <li>{{ about.address|address:'country' }},</li>
+                            <li>{{ about.address|address:'mobile' }}</li>
+                            <li>{{ about.address|address:'email' }}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about__resume">
+                    <a href="{{ about.resume.url }}" class="about__resume__btn">
+                        <i class="fa fa-download"></i> Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% if request.user.is_authenticated %}
+
+        <a href="{% url 'updateabout' about.id %}">
+            <button type="button" class="update_btn">
+            UPDATE
+            </button>
+        </a>
+        <a href="{% url 'deleteabout' about.id %}">
+            <button type="button" class="delete_btn">
+            DELETE
+            </button>
+        </a>
+        {% endif %} {% endfor %} {% if request.user.is_authenticated %}
+        <br>
+        <a href="{% url 'addabout' %}">
+            <button type="button" class="add_btn">
+             ADD
+            </button>
+        </a>
+        {% endif %}
+    </div>
+
+    <!-- -------------------- Education & Experience -------------------- -->
+    <div class="journey" id="journey">
+
+        <!-- ------------ Experience ---------------------- -->
+        <div class="experience">
+            {% for exp in experience %}
+            <div class="experience__left">
+                <h1>Experience </h1>
+            </div>
+            <div class="experience__right">
+                <div class="experience__container">
+                    <div class="company">{{exp.company}}</div>
+                    <div class="duration">{{exp.duration}}</div>
+                    <div class="desc">{{exp.desc}}</div>
+                </div>
+            </div>
+            {% if request.user.is_authenticated %}
+
+            <a href="{% url 'updateexp' exp.id %}">
+                <button type="button" class="update_btn">
+                UPDATE
+                </button>
+            </a>
+            <a href="{% url 'deleteexp' exp.id %}">
+                <button type="button" class="delete_btn">
+                DELETE
+                </button>
+            </a>
+
+            {% endif %} {% endfor %} {% if request.user.is_authenticated %}
+            <br/>
+            <a href="{% url 'addexp' %}">
+                <button type="button" class="add_btn">
+                    ADD
+                    </button>
+            </a>
+            {% endif %}
+        </div>
+
+        <!-- ------------------ Education ------------------- -->
+        <div class="education">
+            <h1>Qualification</h1>
+            <div class="education__container">
+                <div class="timeline"></div>
+                {% for edu in education %}
+                <div class="items">
+                    <div class="items__row">
+                        <i class="{{ edu.icon }}"></i>
+                        <div class="title">{{ edu.institute }}</div>
+                        <div class="course">{{ edu.course }}</div>
+                        <div class="duration">{{ edu.duration }}</div>
+                        <div class="desc">{{ edu.detail }}</div>
+                    </div>
+                </div>
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'updateedu' edu.id %}">
+                    <button type="button" class="update_btn">
+                UPDATE
+                </button>
+                </a>
+                <a href="{% url 'deleteedu' edu.id %}">
+                    <button type="button" class="delete_btn">
+                DELETE
+                </button>
+                </a>
+
+                {% endif %} {% endfor %} {% if request.user.is_authenticated %}
+                <br/>
+                <a href="{% url 'addedu' %}">
+                    <button type="button" class="add_btn">
+                ADD
+                </button>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+    <!-- -------------------- Skills And Certificate --------------------- -->
+
+
+    <div class="skills__certificate" id="skills">
+        <div class="skills">
+            <div class="skills__left">
+                <h1>Skills</h1>
+            </div>
+            <div class="skills__right">
+                {% for skill in skills %}
+                <div class='octagon'>
+                    <div class='inner'>
+                        <div class="content">
+                            {% if 'media' in skill.cover_img %}
+                            <img id="cover_img" src="{{ skill.cover_img }}" />
+                            <p>{{ skill.topic }}</p>
+                            {% else %}
+                            <i class="{{ skill.cover_img }}"></i> {% endif %}
+                            <div class="stars">
+                                {% for i in skill.stars|stars:'full' %}
+                                <i class="fas fa-star"></i> {% endfor %} {% for i in skill.stars|stars:'half' %}
+                                <i class="fas fa-star-half-alt"></i> {% endfor %} {% for i in skill.stars|stars:'none' %}
+                                <i class="far fa-star"></i> {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'updateskill' skill.id %}">
+                    <button type="button" class="update_btn">
+                UPDATE
+                </button>
+                </a>
+                <a href="{% url 'deleteskill' skill.id %}">
+                    <button type="button" class="delete_btn">
+                DELETE
+                </button>
+                </a>
+
+                {% endif %} {% endfor %} {% if request.user.is_authenticated %}
+                <br/>
+                <a href="{% url 'addskill' %}">
+                    <button type="button" class="add_btn">
+                ADD
+                </button>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="certificates">
+            <div class="certificates__left">
+                <h1>Certificates </h1>
+            </div>
+            <div class="certificates__right">
+                {% for topic in certificate %}
+                <div class="certificate__container">
+                    <div class="certificate__container__left">
+                        <div class="title">{{ topic.course }}</div>
+                        <div class="desc">{{ topic.detail }}</div>
+                        <div class="verify">
+                            <span>Source | {{ topic.source }} | </span>
+                            <a href="{{ topic.link }}">Verify</a>
+                        </div>
+                    </div>
+                    <div class="certificate__container__right">
+                        <div class="badge">
+                            <a href="{{ topic.badgeLink }}"><img src="{{ topic.badge.url }}" alt="Badge"></a>
+                        </div>
+                    </div>
+                </div>
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'updatecertificate' topic.id %}">
+                    <button type="button" class="update_btn">
+                UPDATE
+                </button>
+                </a>
+                <a href="{% url 'deletecertificate' topic.id %}">
+                    <button type="button" class="delete_btn">
+                DELETE
+                </button>
+                </a>
+
+                {% endif %} {% endfor %} {% if request.user.is_authenticated %}
+                <br/>
+                <a href="{% url 'addcertificate' %}">
+                    <button type="button" class="add_btn">
+                ADD
+                </button>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- ----------------------- Portfolio work --------------------------- -->
+    <div class="portfolio" id="portfolio">
+        <h1>Portfolio</h1>
+        <div class="portfolio__container">
+            {% for project in projects %}
+            <div class="portfolio__container__items">
+                <a href="{{ project.link }}">
+                    <img src="{{ project.image.url }}" alt="{{ project.title }}" />
+                </a>
+            </div>
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'updateproject' project.id %}">
+                <button type="button" class="update_btn">
+                UPDATE
+                </button>
+            </a>
+            <a href="{% url 'deleteproject' project.id %}">
+                <button type="button" class="delete_btn">
+                DELETE
+                </button>
+            </a>
+
+            {% endif %} {% endfor %} {% if request.user.is_authenticated %}
+            <br/>
+            <a href="{% url 'addproject' %}">
+                <button type="button" class="add_btn">
+                ADD
+                </button>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- ------------------------ Contact US ------------------------------ -->
+    <div class="contact" id="contact">
+        <h1>Get In Touch</h1>
+        <div class="contact__container">
+            <div class="contact__left">
+                <form method="POST" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label for="name">Name</label><br/>
+                    <input type="text" placeholder="Enter Your Name ." name="name"><br/>
+                    <label for="subject">Subject</label><br/>
+                    <input type="text" placeholder="Enter the subject ." name="subject"><br/>
+                    <label for="email">Email Address</label><br/>
+                    <input type="email" placeholder="Enter Your Email Address ." name="email"><br/>
+                    <label for="message">Message</label><br/>
+
+                    <textarea name="message" cols="30" rows="8" placeholder="Enter Your Message ..."></textarea>
+                    <input type="submit" value="Mail" class="mail__btn">
+                </form>
+            </div>
+            <div class="contact__right">
+                <img src="{% static 'image/contact.png' %}" alt="Illustration by Icons 8">
+                <div class="illu">Illustration by <a href="https://icons8.com/illustrations/author/5c07e68d82bcbc0092519bb6">Icons 8</a> from <a href="https://icons8.com/illustrations">Ouch!</a></div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ------------------------- Copyright ------------------------------- -->
+    <div class="copyright">
+        <div class="copyright__left">&copy2016-2021 PRANJAL RAWAT</div>
+        <div class="copyright__right">Designed by Pranjal Rawat</div>
+    </div>
+
+
+    <script type="text/javascript" src="{% static 'js/themetoggler.js' %}"></script>
+</body>
+
+</html>

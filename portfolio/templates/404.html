@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOPS! Error 404</title>
+    <link rel="icon" href="{% static 'image/pranjal.png' %}" />
+    <link rel="stylesheet" href="{% static 'css/404.css' %}" />
+    <script src="https://kit.fontawesome.com/20280fd8f6.js" crossorigin="anonymous"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Arvo&family=Lato&family=Prompt&display=swap');
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        OOPS!
+    </div>
+    <div class="title">
+        <div class="tag">
+            &lt;ERROR&gt;
+        </div>
+        <div class="main">
+            404
+        </div>
+
+        <div class="tag">
+            &lt;/ERROR&gt;
+        </div>
+
+    </div>
+    <div class="section">
+        <div class="tag">
+            Expression{
+        </div>
+        <div class="message">
+            <span>Message : </span> Error 404 - Page Not Found
+        </div>
+        <div class="tag">
+            };
+        </div>
+    </div>
+    <div class="btn">
+        <a href="{% url 'index'%}">
+
+            <button type="button" class="add_btn">
+                <i class="far fa-hand-point-left"></i>
+                Back to Site
+               </button>
+
+        </a>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+<h2>Login</h2>
+
+<form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <input type="submit" value="Login">
+</form>
+<a href="{% url 'index' %}">Back to dashboard</a>

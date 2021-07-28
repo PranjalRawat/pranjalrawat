@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+/portfolio/media
+/portfolio/settings/local.py
+/portfolio/settings/.env
+/portfolio/static
