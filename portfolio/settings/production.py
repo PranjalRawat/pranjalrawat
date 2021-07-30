@@ -8,5 +8,5 @@ ALLOWED_HOSTS = ['pranjalrawat.herokuapp.com']
 
 
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
 

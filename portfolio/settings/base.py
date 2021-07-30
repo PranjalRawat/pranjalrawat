@@ -139,11 +139,26 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# import sentry_sdk
+# from sentry_sdk.integrations.django import DjangoIntegration
 
+# sentry_sdk.init(
+#     dsn="https://03b85c7b4a9d48cdb6a093da31079971@o933628.ingest.sentry.io/5882742",
+#     integrations=[DjangoIntegration()],
+
+#     # Set traces_sample_rate to 1.0 to capture 100%
+#     # of transactions for performance monitoring.
+#     # We recommend adjusting this value in production.
+#     traces_sample_rate=0,
+
+#     # If you wish to associate users to errors (assuming you are using
+#     # django.contrib.auth) you may enable sending PII data.
+#     send_default_pii=True
+# )
 
 EMAIL_BACKEND = 'django_amazon_ses.EmailBackend'
-AWS_ACCESS_KEY_ID = env('id')
-AWS_SECRET_ACCESS_KEY = env('key')
+AWS_SES_ACCESS_KEY_ID = env('id')
+AWS_SES_SECRET_ACCESS_KEY = env('key')
 AWS_SES_REGION = 'us-east-2'
 AWS_SES_REGION_ENDPOINT = 'email-smtp.us-east-2.amazonaws.com'
 Email_from_to = env('Email_from_to')
