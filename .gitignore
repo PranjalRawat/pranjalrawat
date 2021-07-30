@@ -6,3 +6,4 @@ __pycache__/
 /portfolio/settings/local.py
 /portfolio/settings/.env
 /portfolio/static
+/modelapp/migrations
